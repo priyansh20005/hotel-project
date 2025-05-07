@@ -25,6 +25,7 @@ app.use(methodOverride("_method"));
 const mongoose = require("mongoose");
 // const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl= process.env.ATLASDB_URL;
+// mongo atlas db url
 
 const ejsMate=require("ejs-mate");
 app.engine("ejs" , ejsMate);
@@ -84,9 +85,9 @@ const sessionOptions = {
     }
 };
 
-// app.get("/" ,(req , res)=>{
-//     res.send("HI i am ROOT");
-// } );
+app.get("/" ,(req , res)=>{
+    res.redirect("/listings");
+} );
 
 
 
