@@ -1,0 +1,67 @@
+<!-- this is form for adding new Listing -->
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3> Create a new Listing</h3>
+            <br>
+            <form enctype="multipart/form-data" method="POST" action="/listings" novalidate class="needs-validation">
+                
+                <div class="mb-3">
+                    <label for="title" class="form-label" >Title</label> 
+                    <input type="text" name="title" placeholder="title" class="form-control" required>
+                    <div class="valid-feedback">looks Good</div>
+                    <div class="invalid-feedback" > enter a title </div>
+                </div>
+               
+                <div class="mb-3">
+                    <label for="description" class="form-label" >Description</label> 
+                    <textarea  name="description" class="form-control" required > enter description</textarea>
+                    <div class="valid-feedback">nice description </div>
+                    <div class="invalid-feedback">enter a description</div>
+                </div>
+               
+                
+                <div class="mb-3">
+                    <label for="image" class="form-label" >Image-url</label> 
+                    <input type="text" name="image" placeholder="image url" class="form-control">
+                    <div class="invalid-feedback"> please paste the url</div>
+                </div>
+                <!-- IMAGE/file input -->
+                <div class="mb-3">
+                    <label for="image" class="form-label" >Upload image</label> 
+                    <input type="file" name="listing[image]"  class="form-control">
+                   
+                </div>
+               
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label" >Price</label> 
+                        <input type="number" name="price" placeholder="enter price" class="form-control" required>
+                        <div class="invalid-feedback"> please enter a price</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label" >Country</label> 
+                        <input type="text" name="country" placeholder="country" class="form-control" required>
+                        <div class="invalid-feedback"> please enter a country</div>
+                    </div>
+
+                </div>
+          
+                <div class="mb-3">
+                    <label for="location" class="form-label" >Location</label> 
+                    <input type="text" name="location" placeholder="location" class="form-control" required>
+                    <div class="invalid-feedback"> please enter a location</div>
+                </div>
+        
+                <button class="btn btn-dark add-btn  mb-3"> ADD</button>
+            </form>
+
+           
+        </div>
+    </div>
+
+    
+</body>
