@@ -136,7 +136,6 @@ router.route("/:id")
 
 
 
-
 // get edit route
 router.get("/:id/edit",isLoggedIn, isOwner , wrapAsync(async(req , res)=>{
 
@@ -151,8 +150,6 @@ router.get("/:id/edit",isLoggedIn, isOwner , wrapAsync(async(req , res)=>{
     console.log("edit request received ");
     res.render("listings/edit.ejs" , {listing , originalImageUrl});
 }));
-
-
 
 
 

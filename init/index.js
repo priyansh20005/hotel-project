@@ -5,7 +5,7 @@ const listing = require("../models/listing.js");
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect("mongodb+srv://priyanshkoshtics23:QbmdRcs1UNzE2SaZ@cluster0.8u5whfl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 }
 main().then(()=>{
     console.log("connected to db");
@@ -17,9 +17,12 @@ const initDB = async()=>{
     await listing.deleteMany({});
     initData.data= initData.data.map((obj)=>({
         ...obj,
-        owner:'6813804f325e7ffcace939ce'
-        // adding owner to all listings 
-    }));
+        owner:'681b9a7a8d3360987bd78a6e',
+        // adding owner to all listings
+        geometry:{type:'Point' , coordinates:[18.6435, 60.1282]} ,
+    }
+    ));
+        
     await listing.insertMany(initData.data);
     console.log("data was initialized");
 
