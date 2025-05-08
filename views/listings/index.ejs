@@ -110,9 +110,10 @@
                                 <b><%=  listing.title %> </b>
                          <br>
                         
-                         &#8377; <%= listing.price.toLocaleString("en-IN") %> / night 
+                         <i class="normal-price" style="display:inline"> &#8377; <%= listing.price.toLocaleString("en-IN") %> / night &nbsp; +18% GST </i>
                               <!-- // .toLocaleString("en_IN") ; convert number to string with commas btw them -->
-                              <i class="tax-info"> &nbsp; +18% GST </i>
+                              <% let taxedPrice= listing.price* 1.18 %>
+                              <i class="taxed-price" style="display:none;"> &#8377; <%= taxedPrice %> / night </i>
                         
                         </p>
                     </div>
@@ -145,12 +146,21 @@
 
 <script>
     let taxSwitch = document.getElementById("switchCheckDefault");
+    let taxed_price= document.getElementsByClassName("taxed-price");
+    let normal_price =document.getElementsByClassName("normal-price");
+    
     taxSwitch.addEventListener("click" , ()=>{
-        let taxInfo= document.getElementsByClassName("tax-info");
-        console.log(taxInfo);
-        for (info of taxInfo){
+           
+        for(taxed of taxed_price){
+                    if(taxed.style.display!="inline"){
+                        taxed.style.display="inline";
+                    }else{
+                        taxed.style.display="none";
+                    }
+                }
+        for (info of normal_price ){
             if(info.style.display!= "inline"){
-                info.style.display="inline"
+                info.style.display="inline"   
             }else{
                 info.style.display="none";
             }
